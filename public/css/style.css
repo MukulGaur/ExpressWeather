@@ -249,7 +249,7 @@ sup{
 }
 
 .data_hide{
-    /* visibility: hidden; */
+    visibility: hidden;
     transition: all 0.3s linear;
 }
 
@@ -265,5 +265,18 @@ sup{
     .main_header_right{
         height: auto;
         margin-top: 3rem 0;
+    }
+
+    .temp_form{
+        width: auto;
+    }
+
+    .tempInformation{
+        width: auto;
+    }
+
+    .main_layer .middle_layer p,
+    .main_layer .middle_layer .fa{
+        font-size: 5rem;
     }
 }

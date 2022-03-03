@@ -12,6 +12,7 @@ const getInfo = async(event) => {
 
     if(cityVal === ''){
         city_name.innerHTML = `Please enter a city name!`;
+        datahide.classList.add("data_hide");
     }else{
         try{
             let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=6e475f8aeeec10badabc148ae805a7ec`;
@@ -21,6 +22,7 @@ const getInfo = async(event) => {
             city_name.innerText = `${arrData[0].name}, ${arrData[0].sys.country}`;
             temp.innerText = arrData[0].main.temp;
             const tempMood = arrData[0].weather[0].main;
+            console.log(tempMood);
 
             // condition to check sunny and cloudy
 
@@ -29,7 +31,7 @@ const getInfo = async(event) => {
                     "<i class='fa-solid  fa-sun' style='color: #eccc68;'></i>";
                 } else if (tempMood == "Clouds") {
                 temp_status.innerHTML =
-                    "<i class='fa-solid  fa-clouds' style='color: #f1f2f6;'></i>";
+                    "<i class='fa-solid  fa-cloud' style='color: #f1f2f6;'></i>";
                 } else if (tempMood == "Rain") {
                 temp_status.innerHTML =
                     "<i class='fa-solid  fa-cloud-rain' style='color: #a4b0be;'></i>";
@@ -38,6 +40,7 @@ const getInfo = async(event) => {
                     "<i class='fas  fa-cloud' style='color:#f1f2f6;'></i>";
     
                 }
+                datahide.classList.remove("data_hide");
 
         }catch{
             city_name.innerHTML = `Please enter a proper city name!`;
